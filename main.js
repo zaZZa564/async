@@ -3,7 +3,7 @@ function getData(userId) {
     fetch(`https://reqres.in/api/users/${userId}`)
       .then((response) => {
         if(response.ok) {
-          return response.json;
+          return response.json();
         }
         else {
           throw new Error(`Error: ${response.status}`);
@@ -17,3 +17,11 @@ function getData(userId) {
       })
   });
 }
+
+getData(1)
+  .then(data => {
+    console.log(data);
+  })
+  .catch(err => {
+    console.error(err);
+  })
